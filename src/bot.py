@@ -1,14 +1,18 @@
 # -*- coding: utf-8 -*-
+from dotenv import load_dotenv, find_dotenv
+import os
+load_dotenv(find_dotenv())
 
 from telegram.ext import (Updater, CommandHandler)
 
 def start(update, context):
     ''' START '''
     # Hemen gehitu komandoaren egin beharrekoa
-
+    context.bot.send_message(update.message.chat_id, "Kaixo")
+    
 def main():
     # Hasieraketa
-    TOKEN=""
+    TOKEN=os.get("TELEGRAM_TOKEN")
     updater=Updater(TOKEN, use_context=True)
 
     # Robotak erantzungo dituen ebentuak.
