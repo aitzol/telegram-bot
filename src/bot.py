@@ -35,6 +35,9 @@ def mezua(update, context):
     # prozesatu mezua
     # https://core.telegram.org/bots/api#message
     text = update.message.text
+    # Hemen mezua prozesatu eta beharrezkoa bada zerbait erantzun
+    if text.lower().find('errorea')!=-1:
+        context.bot.send_message(update.message.chat_id, "Mesedez jarri kontaktuan administratzailearekin")
 
 def main():
     # Hasieraketa
